@@ -20,10 +20,10 @@ export const logger = winston.createLogger({
       maxSize: '20m',
       maxFiles: '7d'
     }),
-    new winston.transports.Console({
-      format: logFormat,
-      level: 'info'
-    })
+    // new winston.transports.Console({
+    //   format: logFormat,
+    //   level: 'info'
+    // })
     
   ]
 });

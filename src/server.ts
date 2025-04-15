@@ -13,18 +13,24 @@ async function initializeApp() {
     try {
         new EnvironmentValidatorConfig();
         await AppDataSource.initialize();
-        logger.info('Data Source has been initialized!');
+
         const repositoryFactory = new RepositoryFactory(AppDataSource);
         const messageProcessor = new MessageProcessorService(repositoryFactory);
-        //const logFilePath = './data/dispositivo.log';
         const schemaValidator = new SchemaValidator(AppDataSource);
         await schemaValidator.validate();
-        const logReaderService = new LogReaderService('./nb-pro-2025-04-09.log', messageProcessor);
-        await logReaderService.readLogFile();
 
+        for (let day = 9; day <= 15; day++) {
+            const dayStr = day.toString().padStart(2, '0');
+            const filePath = `./nb-pro-2025-04-${dayStr}.log`;
+
+            logger.info(`🍆 Procesando archivo: ${filePath}`);
+            const logReaderService = new LogReaderService(filePath, messageProcessor);
+            await logReaderService.readLogFile();
+            logger.info(`✅ Archivo ${filePath} procesado`);
+        }
 
     } catch (error) {
-        logger.error('Error during initialization: ' + error.message);
+        logger.error('💥 Error during initialization:', error);
     }
 }
 

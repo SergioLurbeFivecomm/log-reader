@@ -44,7 +44,7 @@ export class DeviceStatusFrameService implements FrameService {
     private async updateDeviceStatusProperties(deviceStatusFrame: DeviceStatusFrame, device: Device, address: Address) {
         device.fota = 'None';
         device.lastMessageSent = this.timestamp;
-        const coverage = DeviceStatusHelper.prepareCoverage(deviceStatusFrame.getSigtec(), device, this.timestamp);
+        const coverage = DeviceStatusHelper.prepareCoverage(deviceStatusFrame.getSigtec(), device, this.timestamp, deviceStatusFrame.getLte());
         const alarms = DeviceStatusHelper.prepareAlarms(deviceStatusFrame.getAlarms(), device, this.timestamp);
         const devicePrepared = DeviceStatusHelper.prepareDevice(deviceStatusFrame, device);
         const addressPrepared = await this.checkAddressUpdate(deviceStatusFrame.getConfig(), address);

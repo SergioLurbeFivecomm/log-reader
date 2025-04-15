@@ -13,7 +13,6 @@ import { DeviceCommonService } from '../../../common/services/device-common.serv
 export class WiotDataFrameService implements FrameService {
 
     private timestamp: string;
-    private mqttSenderService: MqttSenderService;
     private wiotDataRepository: WiotDataRepository;
     private deviceRepository: DeviceRepository;
     private meterRepository: MeterRepository;
@@ -53,7 +52,6 @@ export class WiotDataFrameService implements FrameService {
         } catch (error) {
             logger.error('Error in WiotDataFrameService ' + error.message);
         } finally {
-            this.mqttSenderService.sendMessage(`r${imei}`, '{ACK}');
         }
     }
     

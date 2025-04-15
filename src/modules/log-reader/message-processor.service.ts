@@ -23,7 +23,7 @@ export class MessageProcessorService {
     async processMessage(timestamp: string, topic: string, message: string): Promise<void> {
         
 
-        logger.info(`Message received on ${topic}: ${message}`);
+
         try {
             const frameFactory = new FrameFactory();
             const frame = frameFactory.createFrame(topic, message, timestamp);
