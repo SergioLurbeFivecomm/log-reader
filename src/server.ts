@@ -19,7 +19,7 @@ async function initializeApp() {
         //const logFilePath = './data/dispositivo.log';
         const schemaValidator = new SchemaValidator(AppDataSource);
         await schemaValidator.validate();
-        const logReaderService = new LogReaderService('./nb-pro-2025-04-14.log', messageProcessor);
+        const logReaderService = new LogReaderService('./nb-pro-2025-04-09.log', messageProcessor);
         await logReaderService.readLogFile();
 
 

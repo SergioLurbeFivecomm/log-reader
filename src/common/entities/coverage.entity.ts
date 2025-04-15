@@ -42,6 +42,9 @@ export class Coverage {
   @Column('varchar', { length: 10, nullable: true })
   cid: string;
 
+  @Column('varchar', { length: 20, nullable: true })
+  lte?: string;
+
   @Column('int', { nullable: true })
   bw: number;
 
