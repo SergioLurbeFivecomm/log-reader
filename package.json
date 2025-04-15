@@ -1,0 +1,31 @@
+{
+  "name": "log-reader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/server.js",
+    "build": "tsc",
+    "obfuscate": "javascript-obfuscator dist --output dist --compact true --self-defending true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.3.1",
+    "javascript-obfuscator": "^4.1.0",
+    "luxon": "^3.4.3",
+    "mqtt": "^5.1.4",
+    "mysql2": "^3.6.3",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.17",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "@types/luxon": "^3.3.4",
+    "@types/node": "^20.9.0",
+    "typescript": "^5.2.2"
+  }
+}
